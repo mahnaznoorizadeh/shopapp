@@ -1,22 +1,18 @@
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
-import { SharedModule } from "../shared/shared.module";
-import { ShoppingEditComponent } from "./shopping-edit/shopping-edit.component";
-import { ShoppingListComponent } from "./shopping-list.component";
+import { ShoppingListComponent } from './shopping-list.component';
+import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [
-      ShoppingListComponent,
-      ShoppingEditComponent
-  ],
+  declarations: [ShoppingListComponent, ShoppingEditComponent],
   imports: [
-    SharedModule,
     FormsModule,
-    RouterModule.forChild([
-      { path: '', component: ShoppingListComponent }
-    ]), 
-  ]
+    RouterModule.forChild([{ path: '', component: ShoppingListComponent }]),
+    SharedModule
+  ],
+  // providers: [LoggingService]
 })
-export class ShoppingListModule { }
+export class ShoppingListModule {}
