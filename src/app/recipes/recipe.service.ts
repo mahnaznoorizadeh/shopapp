@@ -3,6 +3,7 @@ import { Subject } from "rxjs";
 
 import { Ingredient } from "../shared/ingredient.model";
 import { Recipe } from "./recipe.model";
+import * as ShoppingListActions from '../shopping-list/store/shopping-list.actions';
 import * as fromApp from '../store/app.reducer';
 import { Store } from "@ngrx/store";
 
@@ -48,6 +49,8 @@ export class RecipeService {
     }
 
     addIngredientsToShoppingList(ingredients: Ingredient[]) {
+        // this.slService.addIngredients(ingredients);
+        this.store.dispatch(new ShoppingListActions.AddIngredients(ingredients));
     }
 
     addRecipe(recipe: Recipe) { 
