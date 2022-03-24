@@ -4,7 +4,6 @@ import { Store } from '@ngrx/store';
 import { Subscription } from 'rxjs/internal/Subscription';
 
 import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
 import * as fromApp from '../../store/app.reducer';
 import { map } from 'rxjs/operators';
 
@@ -17,8 +16,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   recipes : Recipe[];
   subscription: Subscription;
 
-  constructor(private recipeService: RecipeService,
-              private router: Router,
+  constructor(private router: Router,
               private route: ActivatedRoute,
               private store: Store<fromApp.AppState>) { }
 
@@ -31,7 +29,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
           this.recipes = recipes;
         }
       );
-    this.recipes = this.recipeService.getRecipes();
   }
 
   onNewRecipe() {
